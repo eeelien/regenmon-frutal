@@ -1,0 +1,324 @@
+:root {
+  --bg-dark: #1a1a2e;
+  --bg-light: #f0f0f0;
+  --text-dark: #e0e0e0;
+  --text-light: #1a1a2e;
+  --fruta-orange: #ff9500;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+  min-height: 100vh;
+  font-size: 12px;
+}
+
+body.light {
+  background-color: var(--bg-light);
+  color: var(--text-light);
+}
+
+/* Creation Screen */
+.creation-screen {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.creation-title {
+  font-size: 18px;
+  margin: 30px 0 20px;
+  color: var(--fruta-orange);
+}
+
+.dino-selector {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.dino-card {
+  cursor: pointer;
+  padding: 12px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  width: 180px;
+}
+
+.dino-card:hover {
+  transform: translateY(-4px);
+}
+
+.dino-card:hover .dino-sprite {
+  animation: bounce 0.5s infinite;
+}
+
+.selected-card {
+  box-shadow: 0 0 20px var(--fruta-orange), 0 0 40px var(--fruta-orange);
+}
+
+/* Game Screen */
+.game-screen {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.game-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px;
+  flex-wrap: wrap;
+}
+
+.fruta-counter {
+  font-size: 14px;
+  color: var(--fruta-orange);
+  font-weight: bold;
+}
+
+.settings-btns {
+  display: flex;
+  gap: 4px;
+}
+
+.auth-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.auth-user {
+  font-size: 9px;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Dino Display */
+.dino-display {
+  text-align: center;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 10px 0;
+  position: relative;
+}
+
+.dino-name {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.floating-text {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 16px;
+  color: var(--fruta-orange);
+  animation: floatUp 1.5s ease-out forwards;
+  pointer-events: none;
+}
+
+.no-fruta-msg {
+  font-size: 10px;
+  color: var(--fruta-orange);
+  margin-top: 8px;
+}
+
+/* Stats */
+.stats-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.stat-bar-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stat-label {
+  font-size: 9px;
+  min-width: 90px;
+}
+
+.stat-value {
+  font-size: 9px;
+  min-width: 50px;
+  text-align: right;
+}
+
+.stat-bar-container progress {
+  width: 100%;
+  flex: 1;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 12px 0;
+}
+
+.action-buttons button {
+  font-size: 10px;
+  padding: 8px 12px;
+}
+
+/* Chat */
+.chat-section {
+  margin: 12px 0;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.memory-indicator {
+  font-size: 10px;
+  opacity: 0.7;
+}
+
+.chat-float {
+  position: absolute;
+  right: 0;
+  font-size: 12px;
+  color: var(--fruta-orange);
+  animation: floatUp 1.5s ease-out forwards;
+}
+
+.chat-messages {
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 8px;
+  border: 2px solid #333;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.chat-msg {
+  margin: 8px 0;
+}
+
+.chat-msg.user {
+  text-align: right;
+}
+
+.chat-msg.assistant {
+  text-align: left;
+}
+
+.chat-msg .nes-balloon {
+  font-size: 10px;
+  display: inline-block;
+  max-width: 80%;
+  text-align: left;
+}
+
+.chat-msg .nes-balloon p {
+  margin: 0;
+  word-wrap: break-word;
+}
+
+.typing-indicator .dots {
+  animation: blink 1s infinite;
+}
+
+.chat-input-row {
+  display: flex;
+  gap: 8px;
+}
+
+.chat-input-row .nes-input {
+  flex: 1;
+  font-size: 10px;
+  font-family: inherit;
+}
+
+.chat-input-row button {
+  font-size: 12px;
+}
+
+/* Activity */
+.activity-history {
+  margin: 12px 0;
+}
+
+/* Reset modal */
+.reset-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  padding: 20px;
+  text-align: center;
+}
+
+.reset-modal p {
+  margin-bottom: 12px;
+  font-size: 12px;
+}
+
+.reset-modal button {
+  margin: 4px;
+  font-size: 10px;
+}
+
+/* Dino Sprite animation */
+.dino-sprite {
+  animation: idle 2s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes floatUp {
+  0% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-30px); }
+}
+
+@keyframes idle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* NES.css overrides for dark */
+.nes-container.is-dark {
+  border-color: #444;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .dino-selector { flex-direction: column; align-items: center; }
+  .dino-card { width: 90%; }
+  .action-buttons { flex-direction: column; }
+  .action-buttons button { width: 100%; }
+  .game-header { font-size: 10px; }
+  .stat-label { min-width: 70px; font-size: 8px; }
+}
